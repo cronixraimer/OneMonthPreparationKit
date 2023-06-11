@@ -1,24 +1,30 @@
 
-def countingSort(arr):
-    #Step 1: my list has to be sorted
-    sorted_lst = sorted(arr)
+def countingSort(n,arr):
+      counts = {}
+      result = []
+      for element in arr:
+          if element >= 0 and element < n:
+              if element in counts:
+                  counts[element] += 1
+              else:
+                  counts[element] = 1
+      for i in range(0, 100):
+          if i in counts:
+              result.append(counts[i])
+          else:
+              result.append(0)
 
-    #Step 2: we need to count my sorted list
-    count = []
 
-    for i in range(sorted_lst):
-        if i in count:
-            count[i] += 1
-        else:
-            count[i] = 1
-    return count
+      return result
 
-
+#a lot of test have been run and asked to chatgpt to fix as my range was n + 1 I coundnt fix and it has to be from range(n) instead of range(n+1)
+#After submission I got 2 correct out of 6 where range again was inccorect
+#range has to be between 0 to 100 corrected for i in range(0, 100): ...
 n = int(input().strip())
 arr = list(map(int, input().strip().split()))
 
-result = countingSort(arr)
-print(result)
+result = countingSort(n,arr)
+print(' '.join(map(str,result)))
 
 
 #63 25 73 1 98 73 56 84 86 57 16 83 8 25
