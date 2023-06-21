@@ -1,5 +1,5 @@
 def gridChallenge(grid):
-    #...
+    #... After I finished the task realized that such challenge create the tester as it shows how to run some test and it was fun
     for i in range(len(grid)):
         grid[i] = list(grid[i])
         grid[i].sort()
