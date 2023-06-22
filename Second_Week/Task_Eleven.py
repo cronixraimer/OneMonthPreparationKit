@@ -1,12 +1,11 @@
 def supperDigit(n, k):
     #...
-    digit = int(n)
 
-    if digit < 10:
-        return digit
+    if len(str(n)) == 1:
+        return n
     else:
-        digit_sum = sum(int(i) for i in str(digit))
-        return digit_sum
+        digit_sum = str(sum([int(i) for i in n])) * k
+        return supperDigit(digit_sum, 1)
 
     #Iteration over each digit in the integer
     #n = 9876
